@@ -209,6 +209,20 @@ html,body{height:100%;font-family:'Sora',sans-serif;background:var(--bg);color:v
     </div>
 
     <div class="rodape">🔒 Conexão encerrada ao fim do atendimento · © Elias Tech</div>
+
+    <!-- SEÇÃO TÉCNICO -->
+    <div id="tecnico-toggle" onclick="toggleTecnico()" style="text-align:center;margin-top:4px;cursor:pointer;color:#b0bac9;font-size:11px;user-select:none">· área do técnico ·</div>
+    <div id="tecnico-box" style="display:none;margin-top:10px">
+      <div class="numero-card" style="background:#f8f0ff;border-color:#d4b8f0">
+        <div class="numero-label" style="color:#6b21a8">📤 Enviar link para o cliente</div>
+        <div class="numero-sublabel">Digite o WhatsApp do cliente (com DDD):</div>
+        <input class="numero-input" id="tel-cliente" type="text" inputmode="numeric" maxlength="15" placeholder="Ex: 99 99999-9999" oninput="gerarLinkCliente(this.value)" style="font-size:18px;letter-spacing:.05em">
+        <div class="input-hint" id="hint-cliente">Digite o número para gerar o link</div>
+        <a class="btn-wpp disabled" id="btn-cliente" href="#" target="_blank" style="background:linear-gradient(135deg,#6b21a8,#9333ea);box-shadow:0 4px 16px rgba(107,33,168,.3)">
+          📲 <span id="txt-cliente">Enviar link para o cliente</span>
+        </a>
+      </div>
+    </div>
   </div>
 
 </div>
@@ -250,6 +264,33 @@ function atualizarWpp(val,tipo){
     txt.textContent='Enviar número para o Elias';
     hint.textContent='Digite o número para liberar o WhatsApp';
     hint.style.color='';
+  }
+}
+
+function toggleTecnico(){
+  var box = document.getElementById('tecnico-box');
+  box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
+
+function gerarLinkCliente(val){
+  var num = val.replace(/\D/g,'');
+  var btn = document.getElementById('btn-cliente');
+  var txt = document.getElementById('txt-cliente');
+  var hint = document.getElementById('hint-cliente');
+  if(num.length >= 10){
+    var numero = num.length === 11 ? '55' + num : num.length === 10 ? '55' + num : num;
+    var msg = encodeURIComponent('Olá! Para eu acessar seu computador e te ajudar, clica nesse link e segue os passinhos 😊\nhttps://eliasflpd.github.io/suporte/');
+    btn.href = 'https://wa.me/' + numero + '?text=' + msg;
+    btn.classList.remove('disabled');
+    txt.textContent = 'Enviar link para ' + val.trim();
+    hint.textContent = '✓ Pronto! Clique para abrir o WhatsApp';
+    hint.style.color = '#6b21a8';
+  } else {
+    btn.href = '#';
+    btn.classList.add('disabled');
+    txt.textContent = 'Enviar link para o cliente';
+    hint.textContent = 'Digite o número para gerar o link';
+    hint.style.color = '';
   }
 }
 </script>
