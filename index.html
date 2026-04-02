@@ -7,45 +7,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#07080f;--card:#0f1120;--blue:#2b7fff;--blue-glow:rgba(43,127,255,.22);--green:#00e496;--text:#e8eeff;--muted:#5a6a8a;--border:rgba(255,255,255,.07)}
+:root{
+  --bg:#f0f4f9;
+  --card:#ffffff;
+  --blue:#1a6ef5;
+  --blue-dark:#0d4fc4;
+  --blue-light:#e8f0fe;
+  --green:#1ab350;
+  --green-dark:#128c3e;
+  --text:#0d1f3c;
+  --muted:#6b7a99;
+  --border:#dde3ef;
+  --shadow:0 2px 16px rgba(13,31,60,.08);
+  --shadow-md:0 4px 24px rgba(13,31,60,.12);
+}
+html,body{height:100%;font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);overflow:hidden}
 
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;overflow:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(43,127,255,.1) 0%,transparent 65%);pointer-events:none;z-index:0}
-
-/* ============ MOBILE — tudo em 100dvh ============ */
-.page{position:relative;z-index:1;height:100dvh;display:flex;flex-direction:column;padding:clamp(10px,2.5vh,20px) 16px}
+.page{height:100dvh;display:flex;flex-direction:column;padding:clamp(10px,2.5vh,20px) 16px;position:relative;z-index:1}
 
 /* Logo */
-.logo{display:flex;align-items:center;justify-content:center;gap:10px;flex-shrink:0;margin-bottom:clamp(6px,1.5vh,14px)}
-.logo-icon{width:clamp(32px,4.5vh,42px);height:clamp(32px,4.5vh,42px);background:linear-gradient(135deg,#1a5ccc,var(--blue));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:clamp(14px,2vh,20px);box-shadow:0 0 16px var(--blue-glow)}
-.logo-name{font-size:clamp(15px,2.2vh,20px);font-weight:800;letter-spacing:-.02em}
+.logo{display:flex;align-items:center;justify-content:center;gap:10px;flex-shrink:0;margin-bottom:clamp(6px,1.4vh,14px)}
+.logo-icon{width:clamp(32px,4.5vh,42px);height:clamp(32px,4.5vh,42px);background:linear-gradient(135deg,var(--blue-dark),var(--blue));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:clamp(14px,2vh,20px);box-shadow:0 4px 14px rgba(26,110,245,.3)}
+.logo-name{font-size:clamp(15px,2.2vh,20px);font-weight:800;letter-spacing:-.02em;color:var(--text)}
 .logo-name span{color:var(--blue)}
 
 /* Badge online */
-.online-badge{display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(0,228,150,.08);border:1px solid rgba(0,228,150,.2);color:var(--green);font-size:clamp(9px,1.3vh,11px);font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin:0 auto clamp(5px,1.2vh,12px);flex-shrink:0}
+.online-badge{display:flex;align-items:center;justify-content:center;gap:7px;background:#e6f9ee;border:1px solid #a8e6bf;color:var(--green-dark);font-size:clamp(9px,1.3vh,11px);font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin:0 auto clamp(5px,1.2vh,12px);flex-shrink:0;width:fit-content}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.4s ease infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* Título */
 .titulo{text-align:center;flex-shrink:0;margin-bottom:clamp(6px,1.5vh,14px)}
-.titulo h1{font-size:clamp(18px,3.5vh,28px);font-weight:800;line-height:1.15;letter-spacing:-.02em}
-.titulo h1 em{font-style:normal;background:linear-gradient(135deg,#6eb0ff,var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.titulo h1{font-size:clamp(18px,3.5vh,28px);font-weight:800;line-height:1.15;letter-spacing:-.02em;color:var(--text)}
+.titulo h1 em{font-style:normal;color:var(--blue)}
 
 /* Abas */
-.tabs{display:flex;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:4px;gap:4px;flex-shrink:0;margin-bottom:clamp(6px,1.5vh,14px)}
-.tab{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:clamp(8px,1.5vh,12px) 8px;border-radius:9px;font-size:clamp(11px,1.6vh,13px);font-weight:700;cursor:pointer;transition:background .2s,color .2s;color:var(--muted);border:none;background:transparent;font-family:'Sora',sans-serif}
-.tab.active{background:var(--card);color:var(--text);box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.tabs{display:flex;background:#e2e8f4;border-radius:12px;padding:4px;gap:4px;flex-shrink:0;margin-bottom:clamp(6px,1.5vh,14px)}
+.tab{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:clamp(8px,1.5vh,12px) 8px;border-radius:9px;font-size:clamp(11px,1.6vh,13px);font-weight:700;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s;color:var(--muted);border:none;background:transparent;font-family:'Sora',sans-serif}
+.tab.active{background:var(--card);color:var(--blue);box-shadow:var(--shadow)}
 
 /* Painéis */
 .painel{display:none;flex-direction:column;flex:1;min-height:0}
 .painel.active{display:flex}
 
-/* Card de passos */
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:clamp(12px,2vh,20px);flex-shrink:0;margin-bottom:clamp(6px,1.2vh,12px)}
+/* Card */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:clamp(12px,2vh,20px);flex-shrink:0;margin-bottom:clamp(6px,1.2vh,12px);box-shadow:var(--shadow)}
 .steps-label{font-size:clamp(9px,1.2vh,11px);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:clamp(8px,1.3vh,14px)}
 .step{display:flex;align-items:center;gap:10px;margin-bottom:clamp(6px,1.1vh,11px)}
 .step:last-child{margin-bottom:0}
-.step-num{width:clamp(22px,3vh,28px);height:clamp(22px,3vh,28px);border-radius:50%;background:linear-gradient(135deg,#1a4fa8,var(--blue));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:clamp(10px,1.4vh,13px);flex-shrink:0}
+.step-num{width:clamp(22px,3vh,28px);height:clamp(22px,3vh,28px);border-radius:50%;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:clamp(10px,1.4vh,13px);flex-shrink:0;border:1.5px solid rgba(26,110,245,.2)}
 .step-txt{font-size:clamp(11px,1.6vh,13px);font-weight:600;color:var(--text);line-height:1.3}
 .step-txt span{font-weight:400;color:var(--muted)}
 
@@ -53,25 +63,25 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
 /* Botões */
 .btn-dl,.btn-android{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:clamp(10px,1.8vh,15px) 16px;color:#fff;font-family:'Sora',sans-serif;font-size:clamp(12px,1.8vh,15px);font-weight:700;border:none;border-radius:11px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
-.btn-dl{background:linear-gradient(135deg,#1a50c0,var(--blue));box-shadow:0 4px 20px var(--blue-glow)}
-.btn-android{background:linear-gradient(135deg,#1a6b2e,#34a853);box-shadow:0 4px 18px rgba(52,168,83,.3)}
-.btn-dl:hover,.btn-android:hover{transform:translateY(-1px)}
+.btn-dl{background:linear-gradient(135deg,var(--blue-dark),var(--blue));box-shadow:0 4px 16px rgba(26,110,245,.35)}
+.btn-android{background:linear-gradient(135deg,#1a6b2e,#1ab350);box-shadow:0 4px 16px rgba(26,179,80,.3)}
+.btn-dl:hover,.btn-android:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(26,110,245,.45)}
 
 /* Card número */
-.numero-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:clamp(10px,1.8vh,18px);flex-shrink:0;margin-bottom:clamp(6px,1.2vh,12px)}
-.numero-label{font-size:clamp(11px,1.5vh,13px);font-weight:600;margin-bottom:3px}
+.numero-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:clamp(10px,1.8vh,18px);flex-shrink:0;margin-bottom:clamp(6px,1.2vh,12px);box-shadow:var(--shadow)}
+.numero-label{font-size:clamp(11px,1.5vh,13px);font-weight:700;margin-bottom:3px;color:var(--text)}
 .numero-sublabel{font-size:clamp(10px,1.3vh,12px);color:var(--muted);margin-bottom:clamp(6px,1.2vh,10px)}
-.numero-sublabel strong{color:#ff6b6b}
-.numero-input{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:10px;padding:clamp(8px,1.4vh,13px) 12px;color:var(--text);font-family:'Sora',sans-serif;font-size:clamp(18px,3vh,24px);font-weight:700;letter-spacing:.1em;text-align:center;outline:none;transition:border-color .2s,box-shadow .2s}
-.numero-input::placeholder{color:var(--muted);font-size:clamp(11px,1.5vh,13px);font-weight:400;letter-spacing:0}
-.numero-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
+.numero-sublabel strong{color:#d63030}
+.numero-input{width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:clamp(8px,1.4vh,13px) 12px;color:var(--text);font-family:'Sora',sans-serif;font-size:clamp(18px,3vh,24px);font-weight:700;letter-spacing:.1em;text-align:center;outline:none;transition:border-color .2s,box-shadow .2s}
+.numero-input::placeholder{color:#b0bac9;font-size:clamp(11px,1.5vh,13px);font-weight:400;letter-spacing:0}
+.numero-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,110,245,.12);background:#fff}
 .input-hint{font-size:clamp(9px,1.2vh,11px);color:var(--muted);text-align:center;margin-top:5px;transition:color .2s}
-.btn-wpp{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:clamp(10px,1.8vh,15px) 16px;background:linear-gradient(135deg,#128c3e,#25d366);color:#fff;font-family:'Sora',sans-serif;font-size:clamp(12px,1.8vh,15px);font-weight:700;border:none;border-radius:11px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,opacity .2s;box-shadow:0 4px 18px rgba(37,211,102,.28);margin-top:clamp(6px,1vh,10px)}
+.btn-wpp{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:clamp(10px,1.8vh,15px) 16px;background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;font-family:'Sora',sans-serif;font-size:clamp(12px,1.8vh,15px);font-weight:700;border:none;border-radius:11px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,opacity .2s;box-shadow:0 4px 16px rgba(26,179,80,.3);margin-top:clamp(6px,1vh,10px)}
 .btn-wpp.disabled{opacity:.35;pointer-events:none}
-.btn-wpp:not(.disabled):hover{transform:translateY(-1px)}
+.btn-wpp:not(.disabled):hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,179,80,.45)}
 
 /* Rodapé */
-.rodape{flex-shrink:0;text-align:center;color:rgba(90,106,138,.5);font-size:clamp(9px,1.2vh,11px);margin-top:clamp(4px,1vh,10px);padding-bottom:clamp(4px,1vh,8px)}
+.rodape{flex-shrink:0;text-align:center;color:var(--muted);font-size:clamp(9px,1.2vh,11px);margin-top:clamp(4px,1vh,10px);padding-bottom:clamp(4px,1vh,8px)}
 
 /* ============ TABLET 640px+ ============ */
 @media(min-width:640px){
@@ -81,44 +91,30 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
   .titulo h1{font-size:clamp(26px,4vh,36px)}
   .tab{font-size:14px;padding:13px 16px}
   .step-txt{font-size:14px}
+  .step-txt span{display:inline}
   .btn-dl,.btn-android,.btn-wpp{font-size:15px;padding:14px 20px}
   .numero-input{font-size:24px}
-
-  /* Mostra subtexto dos passos no tablet */
-  .step-txt span{display:inline}
 }
 
 /* ============ DESKTOP 1024px+ ============ */
 @media(min-width:1024px){
   html,body{overflow:hidden}
   .page{flex-direction:row;padding:0;height:100dvh}
-
-  /* Coluna esquerda */
-  .col-left{width:44%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:48px 48px 48px 64px;border-right:1px solid var(--border);flex-shrink:0;position:relative;overflow:hidden}
-  .col-left::before{content:'';position:absolute;bottom:-100px;left:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(43,127,255,.07) 0%,transparent 70%);pointer-events:none}
-
-  /* Coluna direita */
+  .col-left{width:44%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:48px 48px 48px 64px;background:#fff;border-right:1px solid var(--border);flex-shrink:0;position:relative;overflow:hidden;box-shadow:2px 0 20px rgba(13,31,60,.06)}
+  .col-left::before{content:'';position:absolute;bottom:-80px;left:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(26,110,245,.06) 0%,transparent 70%);pointer-events:none}
   .col-right{flex:1;height:100%;display:flex;flex-direction:column;justify-content:center;padding:48px 64px 48px 48px;overflow-y:auto}
-
   .logo{justify-content:flex-start;margin-bottom:36px}
   .logo-icon{width:52px;height:52px;font-size:24px}
   .logo-name{font-size:24px}
-
   .online-badge{margin:0 0 18px 0;justify-content:flex-start}
   .titulo{text-align:left;margin-bottom:32px}
   .titulo h1{font-size:46px}
-
   .trust{display:flex;flex-direction:column;gap:12px;margin-top:36px}
   .trust-item{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
-  .trust-icon{width:34px;height:34px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-
-  /* Col direita - sem flex-direction column do .page */
-  .tabs,.painel,.card,.numero-card,.rodape{width:100%}
+  .trust-icon{width:34px;height:34px;background:var(--blue-light);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
   .tabs{margin-bottom:16px}
   .tab{font-size:14px;padding:13px 16px}
   .card{padding:28px;margin-bottom:14px}
-  .steps-label{font-size:11px;margin-bottom:16px}
-  .step{margin-bottom:14px}
   .step-num{width:32px;height:32px;font-size:14px}
   .step-txt{font-size:14px}
   .btn-dl,.btn-android,.btn-wpp{font-size:16px;padding:16px 22px;border-radius:13px}
@@ -126,11 +122,8 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
   .numero-input{font-size:26px}
   .rodape{margin-top:16px}
 }
-
 .trust{display:none}
 @media(min-width:1024px){.trust{display:flex}}
-
-/* Esconde subtexto dos passos no mobile para economizar espaço */
 .step-txt span{display:none}
 @media(min-width:640px){.step-txt span{display:inline}}
 </style>
@@ -156,10 +149,9 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
     </div>
   </div>
 
-  <!-- MOBILE/TABLET: tudo junto | DESKTOP: coluna direita -->
+  <!-- MOBILE/TABLET + DESKTOP col direita -->
   <div class="col-right" id="col-right">
 
-    <!-- Mobile/tablet: logo + badge + titulo aqui -->
     <div id="mobile-header">
       <div class="logo">
         <div class="logo-icon">💻</div>
@@ -167,11 +159,10 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
       </div>
       <div class="online-badge"><div class="dot"></div>Técnico Online Agora</div>
       <div class="titulo">
-        <h1>Suporte Remoto<br><em>Rápido e Seguro</em></h1>
+        <h1>Suporte Remoto <em>Rápido e Seguro</em></h1>
       </div>
     </div>
 
-    <!-- Abas -->
     <div class="tabs">
       <button class="tab active" onclick="trocarAba('pc',this)">🖥️ Computador</button>
       <button class="tab" onclick="trocarAba('android',this)">📱 Celular Android</button>
@@ -183,8 +174,8 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
         <p class="steps-label">Siga os passos</p>
         <div class="step"><div class="step-num">1</div><div class="step-txt">Clique em <strong>Baixar</strong> <span>— arquivo pequeno, sem instalação</span></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-txt">Abra o arquivo baixado <span>— clique duas vezes nele</span></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-txt">Digite o <strong style="color:#ff6b6b">número vermelho</strong> <span>que apareceu no AnyDesk</span></div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-txt">Clique no <strong style="color:#25d366">botão verde</strong> <span>para enviar ao Elias</span></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-txt">Digite o <strong style="color:#d63030">número vermelho</strong> <span>que apareceu no AnyDesk</span></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-txt">Clique no <strong style="color:var(--green-dark)">botão verde</strong> <span>para enviar ao Elias</span></div></div>
         <div class="divider"></div>
         <a class="btn-dl" href="https://download.anydesk.com/AnyDesk.exe" download>⬇️ Baixar Programa de Acesso</a>
       </div>
@@ -203,8 +194,8 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
         <p class="steps-label">Siga os passos</p>
         <div class="step"><div class="step-num">1</div><div class="step-txt">Clique em <strong>Play Store</strong> <span>— abre direto no app AnyDesk</span></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-txt">Instale e abra o app <span>— gratuito e seguro</span></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-txt">Digite o <strong style="color:#ff6b6b">número vermelho</strong> <span>que apareceu na tela</span></div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-txt">Clique no <strong style="color:#25d366">botão verde</strong> <span>para enviar ao Elias</span></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-txt">Digite o <strong style="color:#d63030">número vermelho</strong> <span>que apareceu na tela</span></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-txt">Clique no <strong style="color:var(--green-dark)">botão verde</strong> <span>para enviar ao Elias</span></div></div>
         <div class="divider"></div>
         <a class="btn-android" href="https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid" target="_blank">▶ Baixar no Play Store</a>
       </div>
@@ -222,51 +213,43 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
 </div>
 <script>
-// Desktop: mostra col-left, esconde mobile-header
 function ajustarLayout(){
-  var desk = window.innerWidth >= 1024;
-  var colLeft = document.getElementById('col-left-desk');
-  var mobileHdr = document.getElementById('mobile-header');
-  var colRight = document.getElementById('col-right');
-  if(desk){
-    colLeft.style.display = 'flex';
-    mobileHdr.style.display = 'none';
-    colRight.style.padding = '48px 64px 48px 48px';
-  } else {
-    colLeft.style.display = 'none';
-    mobileHdr.style.display = 'block';
-    colRight.style.padding = '';
-  }
+  var desk=window.innerWidth>=1024;
+  var cl=document.getElementById('col-left-desk');
+  var mh=document.getElementById('mobile-header');
+  var cr=document.getElementById('col-right');
+  if(desk){cl.style.display='flex';mh.style.display='none';cr.style.padding='48px 64px 48px 48px';}
+  else{cl.style.display='none';mh.style.display='block';cr.style.padding='';}
 }
 ajustarLayout();
-window.addEventListener('resize', ajustarLayout);
+window.addEventListener('resize',ajustarLayout);
 
-function trocarAba(p, el){
+function trocarAba(p,el){
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   document.querySelectorAll('.painel').forEach(function(x){x.classList.remove('active')});
   el.classList.add('active');
   document.getElementById('painel-'+p).classList.add('active');
 }
 
-function atualizarWpp(val, tipo){
-  var num = val.replace(/\D/g,'');
-  var btn = document.getElementById('wpp-'+tipo);
-  var txt = document.getElementById('txt-'+tipo);
-  var hint = document.getElementById('hint-'+tipo);
-  if(num.length >= 6){
-    var disp = tipo==='android' ? 'celular Android' : 'computador';
-    var msg = encodeURIComponent('Olá Elias! Abri o AnyDesk no meu '+disp+' e meu número é: '+val.trim());
-    btn.href = 'https://wa.me/5599988031747?text='+msg;
+function atualizarWpp(val,tipo){
+  var num=val.replace(/\D/g,'');
+  var btn=document.getElementById('wpp-'+tipo);
+  var txt=document.getElementById('txt-'+tipo);
+  var hint=document.getElementById('hint-'+tipo);
+  if(num.length>=6){
+    var disp=tipo==='android'?'celular Android':'computador';
+    var msg=encodeURIComponent('Olá Elias! Abri o AnyDesk no meu '+disp+' e meu número é: '+val.trim());
+    btn.href='https://wa.me/5599988031747?text='+msg;
     btn.classList.remove('disabled');
-    txt.textContent = 'Enviar número '+val.trim()+' para o Elias';
-    hint.textContent = '✓ Pronto! Clique no botão verde';
-    hint.style.color = '#00e496';
-  } else {
-    btn.href = '#';
+    txt.textContent='Enviar número '+val.trim()+' para o Elias';
+    hint.textContent='✓ Pronto! Clique no botão verde';
+    hint.style.color='#1ab350';
+  }else{
+    btn.href='#';
     btn.classList.add('disabled');
-    txt.textContent = 'Enviar número para o Elias';
-    hint.textContent = 'Digite o número para liberar o WhatsApp';
-    hint.style.color = '';
+    txt.textContent='Enviar número para o Elias';
+    hint.textContent='Digite o número para liberar o WhatsApp';
+    hint.style.color='';
   }
 }
 </script>
