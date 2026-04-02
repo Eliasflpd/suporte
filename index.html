@@ -11,73 +11,88 @@
 body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(43,127,255,.1) 0%,transparent 65%);pointer-events:none;z-index:0}
 
-/* ========================
-   MOBILE (padrão)
-   ======================== */
+/* PAGE */
 .page{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
 .wrap{width:100%;max-width:500px}
 
-.logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:32px}
+/* LOGO */
+.logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:28px}
 .logo-icon{width:44px;height:44px;background:linear-gradient(135deg,#1a5ccc,var(--blue));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 0 20px var(--blue-glow)}
 .logo-name{font-size:20px;font-weight:800;letter-spacing:-.02em}
 .logo-name span{color:var(--blue)}
 
-.hero{text-align:center;margin-bottom:28px}
-.online-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,228,150,.08);border:1px solid rgba(0,228,150,.2);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:16px}
+/* HERO */
+.hero{text-align:center;margin-bottom:24px}
+.online-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,228,150,.08);border:1px solid rgba(0,228,150,.2);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:14px}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.4s ease infinite}
 @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 6px var(--green)}50%{opacity:.3;box-shadow:none}}
-h1{font-size:clamp(26px,7vw,38px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
+h1{font-size:clamp(24px,7vw,36px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
 h1 em{font-style:normal;background:linear-gradient(135deg,#6eb0ff,var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sub{color:var(--muted);font-size:14px;line-height:1.6}
 
-.card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:28px;margin-bottom:14px}
-.steps-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-.step{display:flex;align-items:flex-start;gap:13px;margin-bottom:16px}
+/* ABAS */
+.tabs{display:flex;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:5px;gap:5px;margin-bottom:16px}
+.tab{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 10px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,color .2s;color:var(--muted);border:none;background:transparent;font-family:'Sora',sans-serif}
+.tab.active{background:var(--card);color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.tab-icon{font-size:16px}
+
+/* PAINÉIS */
+.painel{display:none}
+.painel.active{display:block}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px;margin-bottom:13px}
+.steps-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.step{display:flex;align-items:flex-start;gap:12px;margin-bottom:15px}
 .step:last-child{margin-bottom:0}
 .step-num{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#1a4fa8,var(--blue));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;box-shadow:0 0 12px var(--blue-glow)}
 .step-info strong{display:block;font-size:14px;font-weight:600;margin-bottom:2px}
 .step-info span{font-size:12px;color:var(--muted);line-height:1.5}
+.divider{height:1px;background:var(--border);margin:20px 0}
 
-.divider{height:1px;background:var(--border);margin:22px 0}
-
-.btn-dl{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;background:linear-gradient(135deg,#1a50c0,var(--blue));color:#fff;font-family:'Sora',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:13px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 28px var(--blue-glow);position:relative;overflow:hidden}
-.btn-dl::after{content:'';position:absolute;top:-50%;left:-60%;width:35%;height:200%;background:rgba(255,255,255,.12);transform:skewX(-20deg);animation:shine 3.5s ease infinite}
+/* BOTÕES */
+.btn-dl,.btn-android{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 20px;color:#fff;font-family:'Sora',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:13px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden}
+.btn-dl{background:linear-gradient(135deg,#1a50c0,var(--blue));box-shadow:0 6px 28px var(--blue-glow)}
+.btn-android{background:linear-gradient(135deg,#1a6b2e,#34a853);box-shadow:0 6px 24px rgba(52,168,83,.3)}
+.btn-dl::after,.btn-android::after{content:'';position:absolute;top:-50%;left:-60%;width:35%;height:200%;background:rgba(255,255,255,.12);transform:skewX(-20deg);animation:shine 3.5s ease infinite}
 @keyframes shine{0%{left:-60%}25%,100%{left:120%}}
-.btn-dl:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(43,127,255,.5)}
+.btn-dl:hover,.btn-android:hover{transform:translateY(-2px)}
+.btn-dl:hover{box-shadow:0 10px 36px rgba(43,127,255,.5)}
+.btn-android:hover{box-shadow:0 10px 32px rgba(52,168,83,.45)}
 
-.strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;margin-top:12px;color:var(--muted);font-size:11px}
+.strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 10px;margin-top:10px;font-size:11px}
 .strip span{color:var(--green);font-weight:600}
 
-.numero-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px;margin-bottom:14px}
+/* NÚMERO */
+.numero-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;margin-bottom:13px}
 .numero-label{font-size:13px;font-weight:600;margin-bottom:4px}
-.numero-sublabel{font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.5}
+.numero-sublabel{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5}
 .numero-sublabel strong{color:#ff6b6b}
-.numero-input{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:11px;padding:13px 14px;color:var(--text);font-family:'Sora',sans-serif;font-size:22px;font-weight:700;letter-spacing:.12em;text-align:center;outline:none;transition:border-color .2s,box-shadow .2s}
-.numero-input::placeholder{color:var(--muted);font-size:14px;font-weight:400;letter-spacing:0}
+.numero-input{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:11px;padding:12px 14px;color:var(--text);font-family:'Sora',sans-serif;font-size:22px;font-weight:700;letter-spacing:.12em;text-align:center;outline:none;transition:border-color .2s,box-shadow .2s}
+.numero-input::placeholder{color:var(--muted);font-size:13px;font-weight:400;letter-spacing:0}
 .numero-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
-.input-hint{font-size:11px;color:var(--muted);text-align:center;margin-top:7px;transition:color .2s}
-
-.btn-wpp{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;background:linear-gradient(135deg,#128c3e,#25d366);color:#fff;font-family:'Sora',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:13px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,opacity .2s;box-shadow:0 6px 24px rgba(37,211,102,.3);margin-top:10px}
+.input-hint{font-size:11px;color:var(--muted);text-align:center;margin-top:6px;transition:color .2s}
+.btn-wpp{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 20px;background:linear-gradient(135deg,#128c3e,#25d366);color:#fff;font-family:'Sora',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:13px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,opacity .2s;box-shadow:0 6px 24px rgba(37,211,102,.3);margin-top:10px}
 .btn-wpp.disabled{opacity:.35;pointer-events:none}
 .btn-wpp:not(.disabled):hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,.45)}
 
-.seguranca{display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(90,106,138,.6);font-size:11px;margin:16px 0 24px}
+/* SEGURANÇA / FOOTER */
+.seguranca{display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(90,106,138,.6);font-size:11px;margin:14px 0 20px}
 .seguranca::before,.seguranca::after{content:'';flex:1;height:1px;background:var(--border)}
-footer{text-align:center;color:var(--muted);font-size:11px;opacity:.4;padding-bottom:8px}
+footer{text-align:center;color:var(--muted);font-size:11px;opacity:.4}
 
 /* ========================
    TABLET (640px+)
    ======================== */
 @media(min-width:640px){
   .wrap{max-width:580px}
-  h1{font-size:42px}
-  .sub{font-size:16px}
-  .card{padding:32px}
+  h1{font-size:40px}
+  .tab{font-size:14px;padding:13px 16px}
+  .card{padding:30px}
   .step-info strong{font-size:15px}
   .step-info span{font-size:13px}
-  .btn-dl,.btn-wpp{font-size:16px;padding:17px 24px}
-  .numero-label{font-size:14px}
-  .numero-sublabel{font-size:13px}
+  .btn-dl,.btn-android,.btn-wpp{font-size:16px;padding:17px 24px}
+  .numero-input{font-size:24px}
 }
 
 /* ========================
@@ -85,133 +100,174 @@ footer{text-align:center;color:var(--muted);font-size:11px;opacity:.4;padding-bo
    ======================== */
 @media(min-width:1024px){
   .page{align-items:stretch;padding:0}
-  .wrap{max-width:100%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto;min-height:100vh}
+  .wrap{max-width:100%;display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
 
-  /* Coluna esquerda — branding */
-  .col-left{grid-column:1;display:flex;flex-direction:column;justify-content:center;padding:60px 56px 60px 72px;border-right:1px solid var(--border);position:relative;overflow:hidden}
-  .col-left::before{content:'';position:absolute;bottom:-120px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(43,127,255,.08) 0%,transparent 70%);pointer-events:none}
+  .col-left{grid-column:1;display:flex;flex-direction:column;justify-content:center;padding:60px 52px 60px 72px;border-right:1px solid var(--border);position:relative;overflow:hidden}
+  .col-left::before{content:'';position:absolute;bottom:-120px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(43,127,255,.07) 0%,transparent 70%);pointer-events:none}
 
-  /* Coluna direita — formulário */
-  .col-right{grid-column:2;display:flex;flex-direction:column;justify-content:center;padding:60px 72px 60px 56px;overflow-y:auto}
+  .col-right{grid-column:2;display:flex;flex-direction:column;justify-content:center;padding:60px 72px 60px 52px;overflow-y:auto}
 
-  /* Logo vai para col-left */
-  .logo{justify-content:flex-start;margin-bottom:48px}
-  .logo-icon{width:56px;height:56px;font-size:26px}
-  .logo-name{font-size:26px}
+  .logo{justify-content:flex-start;margin-bottom:44px}
+  .logo-icon{width:54px;height:54px;font-size:24px}
+  .logo-name{font-size:24px}
 
-  /* Hero vai para col-left */
-  .hero{text-align:left;margin-bottom:40px}
-  .online-badge{margin-bottom:20px}
-  h1{font-size:52px;margin-bottom:14px}
-  .sub{font-size:17px;max-width:400px}
+  .hero{text-align:left;margin-bottom:36px}
+  h1{font-size:50px;margin-bottom:12px}
+  .sub{font-size:16px;max-width:380px}
 
-  /* Selos de confiança na col-left */
-  .trust{display:flex;flex-direction:column;gap:14px;margin-top:48px}
+  .trust{display:flex;flex-direction:column;gap:13px;margin-top:44px}
   .trust-item{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
   .trust-icon{width:36px;height:36px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 
-  /* Cards no col-right */
-  .card{border-radius:20px;padding:32px;margin-bottom:16px}
-  .steps-label{font-size:12px;margin-bottom:20px}
-  .step{gap:14px;margin-bottom:18px}
-  .step-num{width:34px;height:34px;font-size:14px}
+  .tabs{margin-bottom:18px}
+  .tab{font-size:14px;padding:14px 16px}
+  .card{padding:30px;margin-bottom:14px}
   .step-info strong{font-size:15px}
   .step-info span{font-size:13px}
-  .btn-dl{font-size:16px;padding:18px 24px;border-radius:14px}
-  .numero-card{border-radius:20px;padding:26px}
-  .numero-input{font-size:26px;padding:15px 18px}
-  .btn-wpp{font-size:16px;padding:17px 24px;border-radius:14px}
-  .seguranca{margin:18px 0 20px}
-  footer{padding-bottom:0}
+  .btn-dl,.btn-android,.btn-wpp{font-size:16px;padding:17px 24px;border-radius:14px}
+  .numero-card{padding:24px}
+  .numero-input{font-size:26px}
 }
 
-/* Elementos só visíveis no desktop */
 .trust{display:none}
-@media(min-width:1024px){
-  .trust{display:flex}
-  /* Reorganiza elementos no grid desktop */
-  .logo{order:1}
-  .hero{order:2}
-  .trust{order:3}
-  .card{order:1}
-  .numero-card{order:2}
-  .seguranca{order:3}
-  footer{order:4}
-}
+@media(min-width:1024px){.trust{display:flex}}
 </style>
 </head>
 <body>
 <div class="page">
 <div class="wrap">
 
-  <!-- COL ESQUERDA (desktop) / topo (mobile+tablet) -->
+  <!-- COL ESQUERDA -->
   <div class="col-left">
     <div class="logo">
       <div class="logo-icon">💻</div>
       <div class="logo-name">Elias<span>Tech</span></div>
     </div>
-
     <div class="hero">
       <div class="online-badge"><div class="dot"></div>Técnico Online Agora</div>
       <h1>Suporte Remoto<br><em>Rápido e Seguro</em></h1>
-      <p class="sub">Resolvo o problema do seu computador sem você precisar sair de casa. Rápido, seguro e sem complicação.</p>
+      <p class="sub">Resolvo o problema do seu computador ou celular sem você precisar sair de casa.</p>
     </div>
-
     <div class="trust">
       <div class="trust-item"><div class="trust-icon">🔒</div>Conexão só funciona com sua autorização</div>
       <div class="trust-item"><div class="trust-icon">⚡</div>Atendimento em minutos, sem agendamento</div>
-      <div class="trust-item"><div class="trust-icon">🖥️</div>Funciona em qualquer computador Windows</div>
+      <div class="trust-item"><div class="trust-icon">🖥️</div>Computador Windows e Android</div>
       <div class="trust-item"><div class="trust-icon">✅</div>Problema resolvido ou não cobra</div>
     </div>
   </div>
 
-  <!-- COL DIREITA (desktop) / abaixo (mobile+tablet) -->
+  <!-- COL DIREITA -->
   <div class="col-right">
-    <div class="card">
-      <p class="steps-label">Siga os passos abaixo</p>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-info">
-          <strong>Baixe o programa de acesso</strong>
-          <span>Clique no botão azul — um arquivo pequeno vai ser baixado. Não precisa instalar nada.</span>
+
+    <!-- ABAS -->
+    <div class="tabs">
+      <button class="tab active" onclick="trocarAba('pc',this)">
+        <span class="tab-icon">🖥️</span> Computador
+      </button>
+      <button class="tab" onclick="trocarAba('android',this)">
+        <span class="tab-icon">📱</span> Celular Android
+      </button>
+    </div>
+
+    <!-- PAINEL PC -->
+    <div class="painel active" id="painel-pc">
+      <div class="card">
+        <p class="steps-label">Siga os passos abaixo</p>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-info">
+            <strong>Baixe o programa de acesso</strong>
+            <span>Clique no botão azul — arquivo pequeno, sem instalação.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-info">
+            <strong>Abra o arquivo baixado</strong>
+            <span>Clique duas vezes no arquivo na sua pasta de Downloads.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-info">
+            <strong>Digite o número vermelho que apareceu</strong>
+            <span>O AnyDesk mostra um número em <strong style="color:#ff6b6b">vermelho</strong> no topo — chamado <strong>"Seu Endereço"</strong>.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-info">
+            <strong>Clique no botão verde do WhatsApp</strong>
+            <span>Seu número vai direto pro Elias. Só aguardar!</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <a class="btn-dl" href="https://download.anydesk.com/AnyDesk.exe" download>⬇️&nbsp; Baixar Programa de Acesso</a>
+        <div class="strip">
+          <span>✓ Sem instalação</span>
+          <span>✓ Arquivo oficial AnyDesk</span>
+          <span>✓ Sem vírus</span>
         </div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-info">
-          <strong>Abra o arquivo baixado</strong>
-          <span>Clique duas vezes no arquivo na sua pasta de Downloads. O programa vai abrir.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-info">
-          <strong>Digite o número vermelho que apareceu</strong>
-          <span>O AnyDesk mostra um número grande em <strong style="color:#ff6b6b">vermelho</strong> no topo — chamado <strong>"Seu Endereço"</strong>. Digite ele abaixo.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-info">
-          <strong>Clique no botão verde do WhatsApp</strong>
-          <span>Seu número vai direto para o Elias. É só aguardar ele conectar!</span>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <a class="btn-dl" href="https://download.anydesk.com/AnyDesk.exe" download>⬇️&nbsp; Baixar Programa de Acesso</a>
-      <div class="strip">
-        <span>✓ Sem instalação</span>
-        <span>✓ Arquivo oficial AnyDesk</span>
-        <span>✓ Sem vírus</span>
+      <div class="numero-card">
+        <div class="numero-label">Qual é o número vermelho que apareceu?</div>
+        <div class="numero-sublabel">Olhe o número em <strong>vermelho</strong> no AnyDesk — "Seu Endereço". Digite aqui:</div>
+        <input class="numero-input" id="anydesk-id-pc" type="text" inputmode="numeric" maxlength="12" placeholder="Ex: 123 456 789" oninput="atualizarWpp(this.value,'pc')">
+        <div class="input-hint" id="hint-pc">Digite o número para liberar o botão do WhatsApp</div>
+        <a class="btn-wpp disabled" id="wpp-pc" href="#" target="_blank">📲&nbsp; <span id="wpp-txt-pc">Enviar número para o Elias</span></a>
       </div>
     </div>
 
-    <div class="numero-card">
-      <div class="numero-label">Qual é o número vermelho que apareceu?</div>
-      <div class="numero-sublabel">Olhe o número grande em <strong>vermelho</strong> no AnyDesk — é o seu "Endereço". Digite aqui:</div>
-      <input class="numero-input" id="anydesk-id" type="text" inputmode="numeric" maxlength="12" placeholder="Ex: 123 456 789" oninput="atualizarWpp(this.value)">
-      <div class="input-hint" id="input-hint">Digite o número para liberar o botão do WhatsApp</div>
-      <a class="btn-wpp disabled" id="wpp-btn" href="#" target="_blank">📲&nbsp; <span id="wpp-txt">Enviar número para o Elias</span></a>
+    <!-- PAINEL ANDROID -->
+    <div class="painel" id="painel-android">
+      <div class="card">
+        <p class="steps-label">Siga os passos abaixo</p>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-info">
+            <strong>Baixe o AnyDesk no Play Store</strong>
+            <span>Clique no botão verde abaixo — vai abrir direto na página do app.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-info">
+            <strong>Instale e abra o aplicativo</strong>
+            <span>Após instalar, abra o AnyDesk. Um número vai aparecer na tela.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-info">
+            <strong>Digite o número que apareceu</strong>
+            <span>O AnyDesk mostra um número em <strong style="color:#ff6b6b">vermelho</strong> — chamado <strong>"Seu Endereço"</strong>. Digite ele abaixo.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-info">
+            <strong>Clique no botão verde do WhatsApp</strong>
+            <span>Seu número vai direto pro Elias. Só aguardar!</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <a class="btn-android" href="https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.24.99.19l12.6-11.95-2.93-2.93-10.66 14.69zm16.63-10.35L17.4 12l2.43-1.41L22 12l-2.19 1.41zM2.1.28C1.74.55 1.5 1 1.5 1.59v20.82c0 .59.24 1.04.6 1.31L14.47 12 2.1.28zm13.64 8.79L3.18.24c-.35-.2-.69-.23-1-.09L14.47 12l1.27-2.93z"/></svg>
+          &nbsp;Baixar no Play Store
+        </a>
+        <div class="strip">
+          <span>✓ Gratuito</span>
+          <span>✓ App oficial AnyDesk</span>
+          <span>✓ Seguro</span>
+        </div>
+      </div>
+      <div class="numero-card">
+        <div class="numero-label">Qual é o número que apareceu?</div>
+        <div class="numero-sublabel">Olhe o número em <strong>vermelho</strong> no AnyDesk — "Seu Endereço". Digite aqui:</div>
+        <input class="numero-input" id="anydesk-id-android" type="text" inputmode="numeric" maxlength="12" placeholder="Ex: 123 456 789" oninput="atualizarWpp(this.value,'android')">
+        <div class="input-hint" id="hint-android">Digite o número para liberar o botão do WhatsApp</div>
+        <a class="btn-wpp disabled" id="wpp-android" href="#" target="_blank">📲&nbsp; <span id="wpp-txt-android">Enviar número para o Elias</span></a>
+      </div>
     </div>
 
     <div class="seguranca">🔒 Conexão encerrada assim que o atendimento terminar</div>
@@ -222,13 +278,21 @@ footer{text-align:center;color:var(--muted);font-size:11px;opacity:.4;padding-bo
 </div>
 
 <script>
-function atualizarWpp(val) {
+function trocarAba(painel, el) {
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.painel').forEach(function(p){p.classList.remove('active')});
+  el.classList.add('active');
+  document.getElementById('painel-' + painel).classList.add('active');
+}
+
+function atualizarWpp(val, tipo) {
   var num = val.replace(/\D/g, '');
-  var btn = document.getElementById('wpp-btn');
-  var txt = document.getElementById('wpp-txt');
-  var hint = document.getElementById('input-hint');
+  var btn = document.getElementById('wpp-' + tipo);
+  var txt = document.getElementById('wpp-txt-' + tipo);
+  var hint = document.getElementById('hint-' + tipo);
   if (num.length >= 6) {
-    var msg = encodeURIComponent('Olá Elias! Abri o programa e meu número do AnyDesk é: ' + val.trim());
+    var dispositivo = tipo === 'android' ? 'celular Android' : 'computador';
+    var msg = encodeURIComponent('Olá Elias! Abri o AnyDesk no meu ' + dispositivo + ' e meu número é: ' + val.trim());
     btn.href = 'https://wa.me/5599988031747?text=' + msg;
     btn.classList.remove('disabled');
     txt.textContent = 'Enviar número ' + val.trim() + ' para o Elias';
