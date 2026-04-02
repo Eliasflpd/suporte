@@ -1,29 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zero Preview — Crie com IA</title>
-    <meta name="description" content="Plataforma brasileira de criação com IA. Do prompt ao produto." />
-    <meta name="theme-color" content="#060F1E" />
-
-    <!-- Favicon inline SVG -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FFD050'/><text x='50%25' y='50%25' font-size='20' font-weight='900' font-family='sans-serif' text-anchor='middle' dominant-baseline='central' fill='%23060F1E'>Z</text></svg>" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Zero Preview" />
-    <meta property="og:description" content="Crie aplicações reais com IA. Do prompt ao produto." />
-    <meta property="og:type" content="website" />
-
-    <style>
-      /* Critical: prevent FOUC */
-      html { background: #060F1E; }
-      body { background: #060F1E; margin: 0; }
-      #root { min-height: 100vh; }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elias Tech - Suporte Remoto</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#07080f;--card:#0f1120;--blue:#2b7fff;--blue-glow:rgba(43,127,255,.25);--green:#00e496;--text:#e8eeff;--muted:#5a6a8a;--border:rgba(255,255,255,.07)}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(43,127,255,.1) 0%,transparent 65%);pointer-events:none}
+.wrap{position:relative;z-index:1;width:100%;max-width:520px}
+.logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px}
+.logo-icon{width:48px;height:48px;background:linear-gradient(135deg,#1a5ccc,var(--blue));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 0 24px var(--blue-glow)}
+.logo-name{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.logo-name span{color:var(--blue)}
+.hero{text-align:center;margin-bottom:36px}
+.online-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,228,150,.08);border:1px solid rgba(0,228,150,.2);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.4s ease infinite}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 6px var(--green)}50%{opacity:.3;box-shadow:none}}
+h1{font-size:clamp(28px,6vw,42px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+h1 em{font-style:normal;background:linear-gradient(135deg,#6eb0ff,var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--muted);font-size:15px;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px;margin-bottom:16px}
+.steps-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.step{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.step:last-child{margin-bottom:0}
+.step-num{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1a4fa8,var(--blue));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;box-shadow:0 0 14px var(--blue-glow)}
+.step-info strong{display:block;font-size:15px;font-weight:600;margin-bottom:3px}
+.step-info span{font-size:13px;color:var(--muted);line-height:1.5}
+.divider{height:1px;background:var(--border);margin:26px 0}
+.btn-dl{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:17px 24px;background:linear-gradient(135deg,#1a50c0,var(--blue));color:#fff;font-family:'Sora',sans-serif;font-size:16px;font-weight:700;border:none;border-radius:14px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 28px var(--blue-glow);position:relative;overflow:hidden}
+.btn-dl::after{content:'';position:absolute;top:-50%;left:-60%;width:35%;height:200%;background:rgba(255,255,255,.12);transform:skewX(-20deg);animation:shine 3.5s ease infinite}
+@keyframes shine{0%{left:-60%}25%,100%{left:120%}}
+.btn-dl:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(43,127,255,.5)}
+.btn-ico{font-size:20px}
+.strip{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:14px;color:var(--muted);font-size:12px}
+.strip span{color:var(--green);font-weight:600}
+.wpp-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px 28px;display:flex;align-items:center;gap:18px;margin-bottom:16px;text-decoration:none;transition:border-color .2s,transform .15s}
+.wpp-card:hover{border-color:rgba(37,211,102,.35);transform:translateY(-2px)}
+.wpp-icon{width:48px;height:48px;background:linear-gradient(135deg,#128c3e,#25d366);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.wpp-text strong{display:block;color:var(--text);font-size:15px;font-weight:600;margin-bottom:2px}
+.wpp-text span{font-size:13px;color:var(--muted)}
+.seguranca{display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(90,106,138,.7);font-size:12px;margin-bottom:32px}
+.seguranca::before,.seguranca::after{content:'';flex:1;height:1px;background:var(--border)}
+footer{text-align:center;color:var(--muted);font-size:12px;opacity:.5}
+@media(max-width:480px){.card{padding:22px 18px}.wpp-card{padding:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">
+    <div class="logo-icon">💻</div>
+    <div class="logo-name">Elias<span>Tech</span></div>
+  </div>
+  <div class="hero">
+    <div class="online-badge"><div class="dot"></div>Técnico Online Agora</div>
+    <h1>Suporte Remoto<br><em>Rápido e Seguro</em></h1>
+    <p class="sub">Resolvo o problema do seu computador sem você precisar sair de casa.</p>
+  </div>
+  <div class="card">
+    <p class="steps-label">Siga os passos abaixo</p>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-info">
+        <strong>Baixe o programa de acesso</strong>
+        <span>Clique no botão azul. Um arquivo pequeno vai ser baixado — não precisa instalar nada.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-info">
+        <strong>Abra o arquivo baixado</strong>
+        <span>Clique duas vezes no arquivo que apareceu na sua pasta de Downloads. Uma janela vai abrir com um número.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-info">
+        <strong>Me mande esse número pelo WhatsApp</strong>
+        <span>Copie o número de 9 dígitos que aparece na tela e me envie pelo botão verde abaixo.</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <a class="btn-dl" href="https://download.anydesk.com/AnyDesk.exe" download>
+      <span class="btn-ico">⬇️</span>
+      Baixar Programa de Acesso
+    </a>
+    <div class="strip">
+      <span>✓ Sem instalação</span>&nbsp;·&nbsp;
+      <span>✓ Arquivo oficial AnyDesk</span>&nbsp;·&nbsp;
+      <span>✓ Sem vírus</span>
+    </div>
+  </div>
+  <a class="wpp-card" href="https://wa.me/5599988031747?text=Ol%C3%A1%20Elias%2C%20abri%20o%20programa%20e%20meu%20n%C3%BAmero%20%C3%A9%3A%20" target="_blank">
+    <div class="wpp-icon">📲</div>
+    <div class="wpp-text">
+      <strong>Enviar meu número para o Elias</strong>
+      <span>Toque aqui após abrir o programa e me mande o número</span>
+    </div>
+  </a>
+  <div class="seguranca">🔒 Conexão encerrada assim que o atendimento terminar</div>
+  <footer>© Elias Tech · Suporte Técnico Remoto Profissional</footer>
+</div>
+</body>
 </html>
