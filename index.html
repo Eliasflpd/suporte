@@ -10,120 +10,141 @@
 :root{--bg:#07080f;--card:#0f1120;--blue:#2b7fff;--blue-glow:rgba(43,127,255,.25);--green:#00e496;--text:#e8eeff;--muted:#5a6a8a;--border:rgba(255,255,255,.07)}
 body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(43,127,255,.1) 0%,transparent 65%);pointer-events:none}
-.wrap{position:relative;z-index:1;width:100%;max-width:520px}
-.logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px}
+.wrap{position:relative;z-index:1;width:100%;max-width:540px}
+.logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:36px}
 .logo-icon{width:48px;height:48px;background:linear-gradient(135deg,#1a5ccc,var(--blue));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 0 24px var(--blue-glow)}
 .logo-name{font-size:22px;font-weight:800;letter-spacing:-.02em}
 .logo-name span{color:var(--blue)}
-.hero{text-align:center;margin-bottom:36px}
-.online-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,228,150,.08);border:1px solid rgba(0,228,150,.2);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+.hero{text-align:center;margin-bottom:32px}
+.online-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,228,150,.08);border:1px solid rgba(0,228,150,.2);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:18px}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.4s ease infinite}
 @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 6px var(--green)}50%{opacity:.3;box-shadow:none}}
-h1{font-size:clamp(28px,6vw,42px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+h1{font-size:clamp(26px,6vw,40px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
 h1 em{font-style:normal;background:linear-gradient(135deg,#6eb0ff,var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sub{color:var(--muted);font-size:15px;line-height:1.6}
-.card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px;margin-bottom:16px}
-.steps-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
-.step{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
-.step:last-child{margin-bottom:0}
-.step-num{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1a4fa8,var(--blue));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;box-shadow:0 0 14px var(--blue-glow)}
-.step-info strong{display:block;font-size:15px;font-weight:600;margin-bottom:3px}
-.step-info span{font-size:13px;color:var(--muted);line-height:1.5}
-.divider{height:1px;background:var(--border);margin:26px 0}
-.btn-dl{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:17px 24px;background:linear-gradient(135deg,#1a50c0,var(--blue));color:#fff;font-family:'Sora',sans-serif;font-size:16px;font-weight:700;border:none;border-radius:14px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 28px var(--blue-glow);position:relative;overflow:hidden}
+
+/* Divisor de opções */
+.opcoes-label{text-align:center;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+
+/* Card de opção */
+.opcao{background:var(--card);border:1.5px solid var(--border);border-radius:24px;padding:28px;margin-bottom:14px;transition:border-color .2s}
+.opcao-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.opcao-badge{padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.badge-normal{background:rgba(43,127,255,.12);color:var(--blue);border:1px solid rgba(43,127,255,.25)}
+.badge-facil{background:rgba(0,228,150,.12);color:var(--green);border:1px solid rgba(0,228,150,.25)}
+.opcao-titulo{font-size:16px;font-weight:700}
+.opcao-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+
+/* Passos compactos */
+.passos{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.passo{display:flex;align-items:flex-start;gap:12px}
+.passo-num{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#1a4fa8,var(--blue));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0}
+.passo-txt{font-size:13px;color:var(--muted);line-height:1.5;padding-top:4px}
+.passo-txt strong{color:var(--text)}
+
+/* Botão azul download */
+.btn-dl{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;background:linear-gradient(135deg,#1a50c0,var(--blue));color:#fff;font-family:'Sora',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:14px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 28px var(--blue-glow);position:relative;overflow:hidden}
 .btn-dl::after{content:'';position:absolute;top:-50%;left:-60%;width:35%;height:200%;background:rgba(255,255,255,.12);transform:skewX(-20deg);animation:shine 3.5s ease infinite}
 @keyframes shine{0%{left:-60%}25%,100%{left:120%}}
 .btn-dl:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(43,127,255,.5)}
-.btn-ico{font-size:20px}
-.strip{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:14px;color:var(--muted);font-size:12px}
-.strip span{color:var(--green);font-weight:600}
-.numero-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px 28px;margin-bottom:16px}
-.numero-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
-.numero-sublabel{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5}
-.numero-sublabel strong{color:#ff6b6b}
-.numero-input{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:12px;padding:14px 18px;color:var(--text);font-family:'Sora',sans-serif;font-size:24px;font-weight:700;letter-spacing:.15em;text-align:center;outline:none;transition:border-color .2s,box-shadow .2s}
-.numero-input::placeholder{color:var(--muted);font-size:15px;font-weight:400;letter-spacing:0}
-.numero-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
-.input-hint{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
-.wpp-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:20px 24px;display:flex;align-items:center;gap:16px;margin-bottom:16px;text-decoration:none;transition:border-color .2s,transform .15s,opacity .2s}
-.wpp-card.disabled{opacity:.35;pointer-events:none}
-.wpp-card:not(.disabled):hover{border-color:rgba(37,211,102,.35);transform:translateY(-2px)}
-.wpp-icon{width:48px;height:48px;background:linear-gradient(135deg,#128c3e,#25d366);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.wpp-text strong{display:block;color:var(--text);font-size:15px;font-weight:600;margin-bottom:2px}
-.wpp-text span{font-size:13px;color:var(--muted)}
-.seguranca{display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(90,106,138,.7);font-size:12px;margin-bottom:32px}
+
+/* Anydesk ID input + wpp */
+.id-group{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.id-label{font-size:13px;color:var(--muted)}
+.id-label strong{color:#ff6b6b}
+.id-input{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:12px;padding:13px 16px;color:var(--text);font-family:'Sora',sans-serif;font-size:22px;font-weight:700;letter-spacing:.12em;text-align:center;outline:none;transition:border-color .2s,box-shadow .2s}
+.id-input::placeholder{color:var(--muted);font-size:14px;font-weight:400;letter-spacing:0}
+.id-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
+
+/* Botão WhatsApp */
+.btn-wpp{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;background:linear-gradient(135deg,#128c3e,#25d366);color:#fff;font-family:'Sora',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:14px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,opacity .2s;box-shadow:0 6px 24px rgba(37,211,102,.3)}
+.btn-wpp.disabled{opacity:.35;pointer-events:none}
+.btn-wpp:not(.disabled):hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,.45)}
+
+/* Separador */
+.sep{display:flex;align-items:center;gap:12px;margin:20px 0}
+.sep-line{flex:1;height:1px;background:var(--border)}
+.sep-txt{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+
+/* Campo código Zoho */
+.codigo-wrap{display:flex;gap:10px;margin-bottom:12px}
+.codigo-input{flex:1;background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--text);font-family:'Sora',sans-serif;font-size:28px;font-weight:800;letter-spacing:.2em;text-align:center;outline:none;transition:border-color .2s,box-shadow .2s}
+.codigo-input::placeholder{color:var(--muted);font-size:14px;font-weight:400;letter-spacing:0}
+.codigo-input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,228,150,.15)}
+.btn-entrar{padding:14px 20px;background:linear-gradient(135deg,#0a6640,var(--green));color:#07080f;font-family:'Sora',sans-serif;font-size:14px;font-weight:800;border:none;border-radius:12px;cursor:pointer;transition:transform .15s,box-shadow .15s,opacity .2s;box-shadow:0 4px 20px rgba(0,228,150,.25);white-space:nowrap}
+.btn-entrar.disabled{opacity:.35;pointer-events:none}
+.btn-entrar:not(.disabled):hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,228,150,.4)}
+.zoho-hint{font-size:12px;color:var(--muted);text-align:center}
+
+.seguranca{display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(90,106,138,.6);font-size:12px;margin:20px 0 28px}
 .seguranca::before,.seguranca::after{content:'';flex:1;height:1px;background:var(--border)}
-footer{text-align:center;color:var(--muted);font-size:12px;opacity:.5}
-@media(max-width:480px){.card,.numero-card{padding:22px 18px}.wpp-card{padding:16px 18px}}
+footer{text-align:center;color:var(--muted);font-size:12px;opacity:.4}
+@media(max-width:480px){.opcao{padding:20px 16px}.codigo-wrap{flex-direction:column}}
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <div class="logo">
     <div class="logo-icon">💻</div>
     <div class="logo-name">Elias<span>Tech</span></div>
   </div>
+
   <div class="hero">
     <div class="online-badge"><div class="dot"></div>Técnico Online Agora</div>
     <h1>Suporte Remoto<br><em>Rápido e Seguro</em></h1>
-    <p class="sub">Resolvo o problema do seu computador sem você precisar sair de casa.</p>
+    <p class="sub">Escolha abaixo a opção que o Elias indicou para você.</p>
   </div>
-  <div class="card">
-    <p class="steps-label">Siga os passos abaixo</p>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-info">
-        <strong>Baixe o programa de acesso</strong>
-        <span>Clique no botão azul. Um arquivo pequeno vai ser baixado — não precisa instalar nada.</span>
+
+  <!-- OPÇÃO 1: AnyDesk -->
+  <div class="opcao">
+    <div class="opcao-header">
+      <span class="opcao-badge badge-normal">Opção 1</span>
+      <span class="opcao-titulo">Baixar o programa</span>
+    </div>
+    <p class="opcao-desc">Baixe um arquivo pequeno, abra ele e me mande o número vermelho que aparecer na tela.</p>
+
+    <div class="passos">
+      <div class="passo">
+        <div class="passo-num">1</div>
+        <div class="passo-txt"><strong>Clique em "Baixar"</strong> — um arquivo vai aparecer no seu computador</div>
+      </div>
+      <div class="passo">
+        <div class="passo-num">2</div>
+        <div class="passo-txt"><strong>Abra o arquivo</strong> — clique duas vezes nele onde ele aparecer</div>
+      </div>
+      <div class="passo">
+        <div class="passo-num">3</div>
+        <div class="passo-txt">Digite abaixo o <strong style="color:#ff6b6b">número vermelho grande</strong> que apareceu na tela</div>
       </div>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-info">
-        <strong>Abra o arquivo baixado</strong>
-        <span>Clique duas vezes no arquivo na sua pasta de Downloads. O programa do AnyDesk vai abrir.</span>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-info">
-        <strong>Digite o número vermelho que apareceu</strong>
-        <span>No AnyDesk tem um número grande em <strong style="color:#ff6b6b">vermelho</strong> no topo da tela — chamado <strong>"Seu Endereço"</strong>. Digite ele no campo abaixo.</span>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-info">
-        <strong>Clique no botão verde do WhatsApp</strong>
-        <span>Seu número vai para o Elias automaticamente. Só aguardar a conexão!</span>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <a class="btn-dl" href="https://download.anydesk.com/AnyDesk.exe" download>
-      <span class="btn-ico">⬇️</span>
-      Baixar Programa de Acesso
-    </a>
-    <div class="strip">
-      <span>✓ Sem instalação</span>&nbsp;·&nbsp;
-      <span>✓ Arquivo oficial AnyDesk</span>&nbsp;·&nbsp;
-      <span>✓ Sem vírus</span>
+
+    <a class="btn-dl" href="https://download.anydesk.com/AnyDesk.exe" download>⬇️&nbsp; Baixar Programa</a>
+
+    <div class="id-group">
+      <div class="id-label">Qual é o <strong>número vermelho</strong> que apareceu?</div>
+      <input class="id-input" id="anydesk-id" type="text" inputmode="numeric" maxlength="12" placeholder="Ex: 123 456 789" oninput="atualizarWpp(this.value)">
+      <a class="btn-wpp disabled" id="wpp-btn" href="#" target="_blank">📲&nbsp; <span id="wpp-txt">Enviar número para o Elias</span></a>
     </div>
   </div>
 
-  <div class="numero-card">
-    <div class="numero-label">Qual é o número vermelho que apareceu?</div>
-    <div class="numero-sublabel">No AnyDesk, olhe o número grande em <strong>vermelho</strong> no topo — é o seu "Endereço". Digite ele aqui:</div>
-    <input class="numero-input" id="anydesk-id" type="text" inputmode="numeric" maxlength="12" placeholder="Ex: 123 456 789" oninput="atualizarWpp(this.value)">
-    <div class="input-hint" id="input-hint">Digite o número para liberar o botão do WhatsApp</div>
-  </div>
+  <!-- SEPARADOR -->
+  <div class="sep"><div class="sep-line"></div><div class="sep-txt">ou se o Elias mandou um código</div><div class="sep-line"></div></div>
 
-  <a class="wpp-card disabled" id="wpp-btn" href="#" target="_blank">
-    <div class="wpp-icon">📲</div>
-    <div class="wpp-text">
-      <strong>Enviar meu número para o Elias</strong>
-      <span id="wpp-preview">Digite o número acima para continuar</span>
+  <!-- OPÇÃO 2: Zoho Assist -->
+  <div class="opcao">
+    <div class="opcao-header">
+      <span class="opcao-badge badge-facil">Opção 2 — Mais fácil</span>
+      <span class="opcao-titulo">Entrar com código</span>
     </div>
-  </a>
+    <p class="opcao-desc">O Elias te mandou um código pelo WhatsApp? Digite aqui e conecte direto pelo navegador — sem baixar nada.</p>
+
+    <div class="codigo-wrap">
+      <input class="codigo-input" id="zoho-codigo" type="text" inputmode="numeric" maxlength="9" placeholder="Código" oninput="atualizarZoho(this.value)">
+      <button class="btn-entrar disabled" id="zoho-btn" onclick="entrarZoho()">Conectar →</button>
+    </div>
+    <div class="zoho-hint" id="zoho-hint">Digite o código que o Elias te enviou</div>
+  </div>
 
   <div class="seguranca">🔒 Conexão encerrada assim que o atendimento terminar</div>
   <footer>© Elias Tech · Suporte Técnico Remoto Profissional</footer>
@@ -133,21 +154,38 @@ footer{text-align:center;color:var(--muted);font-size:12px;opacity:.5}
 function atualizarWpp(val) {
   var num = val.replace(/\D/g, '');
   var btn = document.getElementById('wpp-btn');
-  var preview = document.getElementById('wpp-preview');
-  var hint = document.getElementById('input-hint');
+  var txt = document.getElementById('wpp-txt');
   if (num.length >= 6) {
     var msg = encodeURIComponent('Olá Elias! Abri o programa e meu número do AnyDesk é: ' + val.trim());
     btn.href = 'https://wa.me/5599988031747?text=' + msg;
     btn.classList.remove('disabled');
-    preview.textContent = 'Número ' + val.trim() + ' — toque para enviar no WhatsApp';
-    hint.textContent = '✓ Pronto! Agora clique no botão verde abaixo';
-    hint.style.color = '#00e496';
+    txt.textContent = 'Enviar número ' + val.trim() + ' para o Elias';
   } else {
     btn.href = '#';
     btn.classList.add('disabled');
-    preview.textContent = 'Digite o número acima para continuar';
-    hint.textContent = 'Digite o número para liberar o botão do WhatsApp';
+    txt.textContent = 'Enviar número para o Elias';
+  }
+}
+
+function atualizarZoho(val) {
+  var num = val.replace(/\D/g, '');
+  var btn = document.getElementById('zoho-btn');
+  var hint = document.getElementById('zoho-hint');
+  if (num.length >= 6) {
+    btn.classList.remove('disabled');
+    hint.textContent = 'Pronto! Clique em Conectar para entrar na sessão';
+    hint.style.color = '#00e496';
+  } else {
+    btn.classList.add('disabled');
+    hint.textContent = 'Digite o código que o Elias te enviou';
     hint.style.color = '';
+  }
+}
+
+function entrarZoho() {
+  var val = document.getElementById('zoho-codigo').value.replace(/\D/g, '');
+  if (val.length >= 6) {
+    window.open('https://assist.zoho.com/customer?sessionkey=' + val, '_blank');
   }
 }
 </script>
