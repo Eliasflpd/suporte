@@ -37,15 +37,24 @@ h1 em{font-style:normal;background:linear-gradient(135deg,#6eb0ff,var(--blue));-
 .btn-ico{font-size:20px}
 .strip{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:14px;color:var(--muted);font-size:12px}
 .strip span{color:var(--green);font-weight:600}
-.wpp-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px 28px;display:flex;align-items:center;gap:18px;margin-bottom:16px;text-decoration:none;transition:border-color .2s,transform .15s}
-.wpp-card:hover{border-color:rgba(37,211,102,.35);transform:translateY(-2px)}
+.numero-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px 28px;margin-bottom:16px}
+.numero-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.numero-sublabel{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5}
+.numero-sublabel strong{color:#ff6b6b}
+.numero-input{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:12px;padding:14px 18px;color:var(--text);font-family:'Sora',sans-serif;font-size:24px;font-weight:700;letter-spacing:.15em;text-align:center;outline:none;transition:border-color .2s,box-shadow .2s}
+.numero-input::placeholder{color:var(--muted);font-size:15px;font-weight:400;letter-spacing:0}
+.numero-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
+.input-hint{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+.wpp-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:20px 24px;display:flex;align-items:center;gap:16px;margin-bottom:16px;text-decoration:none;transition:border-color .2s,transform .15s,opacity .2s}
+.wpp-card.disabled{opacity:.35;pointer-events:none}
+.wpp-card:not(.disabled):hover{border-color:rgba(37,211,102,.35);transform:translateY(-2px)}
 .wpp-icon{width:48px;height:48px;background:linear-gradient(135deg,#128c3e,#25d366);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
 .wpp-text strong{display:block;color:var(--text);font-size:15px;font-weight:600;margin-bottom:2px}
 .wpp-text span{font-size:13px;color:var(--muted)}
 .seguranca{display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(90,106,138,.7);font-size:12px;margin-bottom:32px}
 .seguranca::before,.seguranca::after{content:'';flex:1;height:1px;background:var(--border)}
 footer{text-align:center;color:var(--muted);font-size:12px;opacity:.5}
-@media(max-width:480px){.card{padding:22px 18px}.wpp-card{padding:18px}}
+@media(max-width:480px){.card,.numero-card{padding:22px 18px}.wpp-card{padding:16px 18px}}
 </style>
 </head>
 <body>
@@ -72,14 +81,21 @@ footer{text-align:center;color:var(--muted);font-size:12px;opacity:.5}
       <div class="step-num">2</div>
       <div class="step-info">
         <strong>Abra o arquivo baixado</strong>
-        <span>Clique duas vezes no arquivo que apareceu na sua pasta de Downloads. Uma janela vai abrir com um número.</span>
+        <span>Clique duas vezes no arquivo na sua pasta de Downloads. O programa do AnyDesk vai abrir.</span>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-info">
-        <strong>Me mande esse número pelo WhatsApp</strong>
-        <span>Copie o número de 9 dígitos que aparece na tela e me envie pelo botão verde abaixo.</span>
+        <strong>Digite o número vermelho que apareceu</strong>
+        <span>No AnyDesk tem um número grande em <strong style="color:#ff6b6b">vermelho</strong> no topo da tela — chamado <strong>"Seu Endereço"</strong>. Digite ele no campo abaixo.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-info">
+        <strong>Clique no botão verde do WhatsApp</strong>
+        <span>Seu número vai para o Elias automaticamente. Só aguardar a conexão!</span>
       </div>
     </div>
     <div class="divider"></div>
@@ -93,15 +109,47 @@ footer{text-align:center;color:var(--muted);font-size:12px;opacity:.5}
       <span>✓ Sem vírus</span>
     </div>
   </div>
-  <a class="wpp-card" href="https://wa.me/5599988031747?text=Ol%C3%A1%20Elias%2C%20abri%20o%20programa%20e%20meu%20n%C3%BAmero%20%C3%A9%3A%20" target="_blank">
+
+  <div class="numero-card">
+    <div class="numero-label">Qual é o número vermelho que apareceu?</div>
+    <div class="numero-sublabel">No AnyDesk, olhe o número grande em <strong>vermelho</strong> no topo — é o seu "Endereço". Digite ele aqui:</div>
+    <input class="numero-input" id="anydesk-id" type="text" inputmode="numeric" maxlength="12" placeholder="Ex: 123 456 789" oninput="atualizarWpp(this.value)">
+    <div class="input-hint" id="input-hint">Digite o número para liberar o botão do WhatsApp</div>
+  </div>
+
+  <a class="wpp-card disabled" id="wpp-btn" href="#" target="_blank">
     <div class="wpp-icon">📲</div>
     <div class="wpp-text">
       <strong>Enviar meu número para o Elias</strong>
-      <span>Toque aqui após abrir o programa e me mande o número</span>
+      <span id="wpp-preview">Digite o número acima para continuar</span>
     </div>
   </a>
+
   <div class="seguranca">🔒 Conexão encerrada assim que o atendimento terminar</div>
   <footer>© Elias Tech · Suporte Técnico Remoto Profissional</footer>
 </div>
+
+<script>
+function atualizarWpp(val) {
+  var num = val.replace(/\D/g, '');
+  var btn = document.getElementById('wpp-btn');
+  var preview = document.getElementById('wpp-preview');
+  var hint = document.getElementById('input-hint');
+  if (num.length >= 6) {
+    var msg = encodeURIComponent('Olá Elias! Abri o programa e meu número do AnyDesk é: ' + val.trim());
+    btn.href = 'https://wa.me/5599988031747?text=' + msg;
+    btn.classList.remove('disabled');
+    preview.textContent = 'Número ' + val.trim() + ' — toque para enviar no WhatsApp';
+    hint.textContent = '✓ Pronto! Agora clique no botão verde abaixo';
+    hint.style.color = '#00e496';
+  } else {
+    btn.href = '#';
+    btn.classList.add('disabled');
+    preview.textContent = 'Digite o número acima para continuar';
+    hint.textContent = 'Digite o número para liberar o botão do WhatsApp';
+    hint.style.color = '';
+  }
+}
+</script>
 </body>
 </html>
